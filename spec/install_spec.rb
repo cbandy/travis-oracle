@@ -5,7 +5,7 @@ describe 'install.sh' do
 
     File.exist?(directory).should be_true
     File.lstat(directory).should be_directory
-    `df -BG #{directory}`.split("\n")[1].split(/\b/)[2].should == '2G'
+    `df -B1 #{directory}`.split("\n")[1].split(/\b/)[2].to_i.should >= 2147483648
   end
 
   it 'creates an executable that does nothing at /sbin/chkconfig' do
