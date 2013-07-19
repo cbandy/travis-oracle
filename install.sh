@@ -16,3 +16,13 @@ test -d /var/lock/subsys || sudo mkdir /var/lock/subsys
 
 unzip -j "$ORACLE_FILE" "*/$ORACLE_RPM"
 sudo dpkg --install `sudo alien --scripts --to-deb "$ORACLE_RPM" | cut -d' ' -f1`
+
+echo 'OS_AUTHENT_PREFIX=""' | sudo tee -a "$ORACLE_HOME/config/scripts/init.ora" > /dev/null
+sudo usermod -aG dba $USER
+
+( echo ; echo ; echo travis ; echo travis ; echo n ) | sudo AWK='/usr/bin/awk' /etc/init.d/oracle-xe configure
+
+"$ORACLE_HOME/bin/sqlplus" -L -S / AS SYSDBA <<SQL
+CREATE USER $USER IDENTIFIED EXTERNALLY;
+GRANT CONNECT, RESOURCE TO $USER;
+SQL

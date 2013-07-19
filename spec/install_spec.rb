@@ -39,4 +39,20 @@ describe 'install.sh' do
       File.executable?(ENV['ORACLE_HOME'] + '/bin/sqlplus').should be_true
     end
   end
+
+  context 'when ORACLE_HOME is defined', :if => ENV.has_key?('ORACLE_HOME') do
+    describe 'shell access' do
+      let(:sqlplus) { ENV['ORACLE_HOME'] + '/bin/sqlplus' }
+
+      it 'grants normal access without password to the current user' do
+        IO.popen([sqlplus, %w(-L -S /)].flatten, 'w') { |io| io.puts 'exit' }
+        $?.should be_success
+      end
+
+      it 'grants DBA access without password to the current user' do
+        IO.popen([sqlplus, %w(-L -S / AS SYSDBA)].flatten, 'w') { |io| io.puts 'exit' }
+        $?.should be_success
+      end
+    end
+  end
 end
