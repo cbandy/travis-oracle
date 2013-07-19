@@ -22,4 +22,14 @@ describe 'install.sh' do
     File.exist?(directory).should be_true
     File.lstat(directory).should be_directory
   end
+
+  context 'when ORACLE_FILE is defined', :if => ENV.has_key?('ORACLE_FILE') do
+    it 'extracts an RPM' do
+      Dir.glob('*.rpm').should_not be_empty
+    end
+
+    it 'generates a DEB' do
+      Dir.glob('*.deb').should_not be_empty
+    end
+  end
 end
