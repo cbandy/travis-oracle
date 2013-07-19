@@ -31,5 +31,12 @@ describe 'install.sh' do
     it 'generates a DEB' do
       Dir.glob('*.deb').should_not be_empty
     end
+
+    it 'installs Oracle Express Edition' do
+      File.exists?('/etc/init.d/oracle-xe').should be_true
+
+      File.exists?(ENV['ORACLE_HOME']).should be_true
+      File.executable?(ENV['ORACLE_HOME'] + '/bin/sqlplus').should be_true
+    end
   end
 end

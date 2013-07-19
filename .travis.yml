@@ -3,6 +3,7 @@ language: ruby
 env:
   global:
     - ORACLE_FILE=oracle-xe-11.2.0-1.0.x86_64.rpm.zip
+    - ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
     - secure: |-
         REs6mpvqfUNylgewMOHvJ2CqAm+4NXKJRHqJEcNvKuwypppjPNDmKrIFKCEB
         2yPkTUB5RLZsN5JEWS5JGyWmpmAzDJKkJwSa8Xd/CrjDQX8cy5saMizoqQBL

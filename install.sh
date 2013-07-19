@@ -15,4 +15,4 @@ test -f /sbin/chkconfig ||
 test -d /var/lock/subsys || sudo mkdir /var/lock/subsys
 
 unzip -j "$ORACLE_FILE" "*/$ORACLE_RPM"
-sudo alien --scripts --to-deb "$ORACLE_RPM"
+sudo dpkg --install `sudo alien --scripts --to-deb "$ORACLE_RPM" | cut -d' ' -f1`
