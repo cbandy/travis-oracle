@@ -54,5 +54,13 @@ describe 'install.sh' do
         $?.should be_success
       end
     end
+
+    describe 'library access' do
+      require 'oci8'
+
+      it 'grants normal access without password to the current user' do
+        OCI8.new('/').exec('SELECT 1 FROM DUAL') { |row| row.should == [1] }
+      end
+    end
   end
 end
