@@ -1,6 +1,4 @@
-#!/bin/sh
-
-set -e
+#!/bin/sh -e
 
 ORACLE_RPM=`basename $ORACLE_FILE .zip`
 

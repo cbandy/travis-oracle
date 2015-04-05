@@ -1,3 +1,5 @@
+var system = require('system');
+var env = system.env;
 
 function javascriptRequired () {
 	page.onLoadFinished = dumpCookies;
@@ -18,7 +20,7 @@ function dumpCookies () {
 }
 
 function serializeLoginForm () {
-	page.includeJs('https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js', function () {
+	page.includeJs('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js', function () {
 		var data = page.evaluate(function () { return jQuery(document.forms[0]).serialize(); });
 		for (var key in env) {
 			if (key.indexOf('ORACLE_LOGIN_') == 0 && env.hasOwnProperty(key)) {
@@ -26,17 +28,16 @@ function serializeLoginForm () {
 				data = data.replace(name, name + env[key]);
 			}
 		}
-		console.log(data);
+		system.stdout.writeLine(data);
 		phantom.exit();
 	});
 }
 
-phantom.addCookie({'name': 'gpw_e24', 'value': 'http://www.oracle.com/technetwork/products/express-edition/downloads/index.html', 'domain': '.oracle.com' });
 phantom.addCookie({'name': 'oraclelicense', 'value': 'accept-sqldev-cookie', 'domain': '.oracle.com' });
 
-var env = require('system').env;
 var page = require('webpage').create();
 page.settings.userAgent = env['USER_AGENT'];
 
+page.onResourceError = function(error) { system.stderr.writeLine(JSON.stringify(error)); phantom.exit(1); }
 page.onLoadFinished = javascriptRequired;
 page.open('https://edelivery.oracle.com/akam/otn/linux/oracle11g/xe/' + env['ORACLE_FILE']);
