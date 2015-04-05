@@ -5,10 +5,6 @@ env:
     - ORACLE_FILE=oracle-xe-11.2.0-1.0.x86_64.rpm.zip
     - ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
     - ORACLE_SID=XE
-    - secure: |-
-        REs6mpvqfUNylgewMOHvJ2CqAm+4NXKJRHqJEcNvKuwypppjPNDmKrIFKCEB
-        2yPkTUB5RLZsN5JEWS5JGyWmpmAzDJKkJwSa8Xd/CrjDQX8cy5saMizoqQBL
-        O/o07QNg4Unnf1F7nDKkcRSgXkMxef2leNJUKg1j34+thSUjDXo=
 
 before_install:
   - ./download.sh
