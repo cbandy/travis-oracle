@@ -2,6 +2,8 @@
 
 ORACLE_RPM=`basename $ORACLE_FILE .zip`
 
+cd "$(dirname "$(readlink -f "$0")")"
+
 sudo apt-get -qq update
 sudo apt-get --no-install-recommends -qq install alien bc libaio1 unzip
 

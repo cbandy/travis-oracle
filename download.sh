@@ -3,6 +3,8 @@
 export COOKIES='cookies.txt'
 export USER_AGENT='Mozilla/5.0'
 
+cd "$(dirname "$(readlink -f "$0")")"
+
 echo > "$COOKIES"
 chmod 600 "$COOKIES"
 
