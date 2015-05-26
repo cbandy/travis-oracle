@@ -36,7 +36,13 @@ the current license agreement for [Oracle Database Express Edition][].
    tar --extract --gzip --strip-components 1 --directory .travis/oracle --file v1.0.0.tar.gz 
    ```
 
-4. Finally, execute the extracted scripts as part of your build, usually
+4. Enable [`sudo`](http://docs.travis-ci.com/user/workers/standard-infrastructure):
+
+   ```yaml
+   sudo: required
+   ```
+
+5. Finally, execute the extracted scripts as part of your build, usually
    during [`before_install`](http://docs.travis-ci.com/user/build-lifecycle):
 
    ```yaml
