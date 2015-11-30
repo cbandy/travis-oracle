@@ -31,9 +31,9 @@ the current license agreement for [Oracle Database Express Edition][].
 3. Download and extract the [latest release][] into your project. For example,
 
    ```shell
-   wget 'https://github.com/cbandy/travis-oracle/archive/v1.1.0.tar.gz'
+   wget 'https://github.com/cbandy/travis-oracle/archive/v1.2.0.tar.gz'
    mkdir -p .travis/oracle
-   tar --extract --gzip --strip-components 1 --directory .travis/oracle --file v1.1.0.tar.gz
+   tar xz --strip-components 1 -C .travis/oracle -f v1.2.0.tar.gz
    ```
 
 4. Enable [`sudo`](https://docs.travis-ci.com/user/workers/standard-infrastructure/):
