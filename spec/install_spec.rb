@@ -28,10 +28,6 @@ describe 'install.sh' do
       expect(Dir.glob('*.rpm')).to_not be_empty
     end
 
-    it 'generates a DEB' do
-      expect(Dir.glob('*.deb')).to_not be_empty
-    end
-
     it 'installs Oracle Express Edition' do
       expect(File).to exist('/etc/init.d/oracle-xe')
 
