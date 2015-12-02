@@ -10,7 +10,7 @@ Phantom.createAsync({ parameters: { 'ssl-protocol': 'tlsv1' } }).then(function (
 
   // Configure the browser, open a tab
   return browser
-  .addCookiePromise({'name': 'oraclelicense', 'value': 'accept-sqldev-cookie', 'domain': '.oracle.com' })
+  .addCookiePromise({'name': 'oraclelicense', 'value': "accept-" + env['ORACLE_COOKIE'] + "-cookie", 'domain': '.oracle.com' })
   .then(function () {
     return browser.createPagePromise();
   })
@@ -24,7 +24,7 @@ Phantom.createAsync({ parameters: { 'ssl-protocol': 'tlsv1' } }).then(function (
 
     // Request the file, wait for the login page
     .then(function () {
-      return page.openPromise("https://edelivery.oracle.com/akam/otn/linux/oracle11g/xe/" + env['ORACLE_FILE']).then(function (status) {
+      return page.openPromise("https://edelivery.oracle.com/akam/otn/linux/" + env['ORACLE_FILE']).then(function (status) {
         if (status != 'success') throw "Unable to connect to oracle.com";
         return page.waitForSelectorPromise('input[type=password]', 5000);
       })

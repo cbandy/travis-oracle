@@ -23,7 +23,8 @@ the current license agreement for [Oracle Database Express Edition][].
 2. Add the version information to your build environment variables:
 
    ```yaml
-   - ORACLE_FILE=oracle-xe-11.2.0-1.0.x86_64.rpm.zip
+   - ORACLE_COOKIE=sqldev
+   - ORACLE_FILE=oracle11g/xe/oracle-xe-11.2.0-1.0.x86_64.rpm.zip
    - ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
    - ORACLE_SID=XE
    ```
