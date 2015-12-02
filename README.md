@@ -53,6 +53,11 @@ the current license agreement for [Oracle Database Express Edition][].
 [SQL\*Plus][] is installed to `$ORACLE_HOME/bin/sqlplus`, and the current user
 has both normal and DBA access without a password, i.e. `/` and `/ AS SYSDBA`.
 
+[OCI][] and [OCCI][] libraries and header files are in `$ORACLE_HOME/lib` and
+`$ORACLE_HOME/rdbms/public`, respectively.
+
 [environment variables]: https://docs.travis-ci.com/user/environment-variables/
 [latest release]: https://github.com/cbandy/travis-oracle/releases/latest
+[OCCI]: http://www.oracle.com/pls/topic/lookup?ctx=xe112&id=LNCPP
+[OCI]: http://www.oracle.com/pls/topic/lookup?ctx=xe112&id=LNOCI
 [SQL\*Plus]: http://www.oracle.com/pls/topic/lookup?ctx=xe112&id=SQPUG
