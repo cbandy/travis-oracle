@@ -74,7 +74,7 @@ Phantom.createAsync({ parameters: { 'ssl-protocol': 'tlsv1' } }).then(function (
             var applied = false;
             form.data = form.data.replace(tuple[0] + '=', function (name) {
               applied = true;
-              return name + tuple[1];
+              return name + encodeURIComponent(tuple[1]);
             });
             return !applied;
           })
