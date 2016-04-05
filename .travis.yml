@@ -10,10 +10,16 @@ env:
 
 matrix:
   include:
-    - env: APT_ADDON=0
+    - env: APT_ADDON=0 DIST=precise
+      dist: precise
       addons:
         apt: false
-    - env: APT_ADDON=1
+    - env: APT_ADDON=0 DIST=trusty
+      dist: trusty
+      addons:
+        apt: false
+    - env: APT_ADDON=1 DIST=precise
+      dist: precise
       addons:
         apt:
           packages:
