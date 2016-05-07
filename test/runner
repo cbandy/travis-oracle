@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+error=0
+
+for test in ${0%/*}/*_test.sh; do
+	echo "Running $test ..."
+	$test || error=1
+	echo
+done
+
+exit $error

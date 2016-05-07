@@ -1,4 +1,4 @@
-language: ruby
+language: generic
 sudo: required
 
 env:
@@ -8,16 +8,17 @@ env:
     - ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
     - ORACLE_SID=XE
 
+addons:
+  apt:
+    packages:
+      - shunit2
+
 matrix:
   include:
-    - env: APT_ADDON=0 DIST=precise
+    - env: DIST=precise
       dist: precise
-      addons:
-        apt: false
-    - env: APT_ADDON=0 DIST=trusty
+    - env: DIST=trusty
       dist: trusty
-      addons:
-        apt: false
     - env: APT_ADDON=1 DIST=precise
       dist: precise
       addons:
@@ -25,7 +26,11 @@ matrix:
           packages:
             - libaio1
             - rpm
+            - shunit2
 
 before_install:
   - ./download.sh
   - ./install.sh
+
+install: make setup
+script: make test-all
