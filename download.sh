@@ -11,6 +11,10 @@ if [ -n "$ORACLE_DOWNLOAD_DIR" ]; then
   ORACLE_DOWNLOAD_FILE="$(readlink -f "$ORACLE_DOWNLOAD_DIR")/$ORACLE_DOWNLOAD_FILE"
 fi
 
+if [ "${*#*--unless-exists}" != "$*" ] && [ -f "$ORACLE_DOWNLOAD_FILE" ]; then
+  exit 0
+fi
+
 cd "$(dirname "$(readlink -f "$0")")"
 
 npm install bluebird node-phantom-simple
