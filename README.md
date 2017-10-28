@@ -37,7 +37,7 @@ the current license agreement for [Oracle Database Express Edition][].
    tar x -C .travis/oracle --strip-components=1 -f v2.0.2.tar.gz
    ```
 
-4. Enable [`sudo`](https://docs.travis-ci.com/user/workers/standard-infrastructure/):
+4. Enable [`sudo`](https://docs.travis-ci.com/user/reference/overview/):
 
    ```yaml
    sudo: required
