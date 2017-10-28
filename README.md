@@ -15,10 +15,10 @@ the current license agreement for [Oracle Database Express Edition][].
 1. Add your Oracle username and password to your build [environment variables][],
    either as hidden repository settings or encrypted variables:
 
-   | Variable Name              | Value         |
-   | -------------------------- | ------------- |
-   | `ORACLE_LOGIN_ssousername` | your username |
-   | `ORACLE_LOGIN_password`    | your password |
+   | Variable Name         | Value         |
+   | --------------------- | ------------- |
+   | `ORACLE_LOGIN_userid` | your username |
+   | `ORACLE_LOGIN_pass`   | your password |
 
 2. Add the version information to your build environment variables:
 
