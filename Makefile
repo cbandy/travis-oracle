@@ -13,3 +13,7 @@ test-all: test
 	$(MAKE) -C test/node test
 	$(MAKE) -C test/python test
 	$(MAKE) -C test/ruby test
+
+.PHONY: check-export
+check-export:
+	@git archive HEAD | tar t
