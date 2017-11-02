@@ -1,0 +1,12 @@
+{
+  "name": "@travis-oracle/test",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "oracledb": "*"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  }
+}
