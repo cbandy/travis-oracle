@@ -19,14 +19,18 @@ matrix:
       dist: precise
     - env: DIST=trusty
       dist: trusty
-    - env: APT_ADDON=1 DIST=precise
-      dist: precise
+    - env: APT_ADDON=1 DIST=trusty
+      dist: trusty
       addons:
         apt:
           packages:
             - libaio1
             - rpm
             - shunit2
+
+  allow_failures:
+    - env: DIST=precise
+      dist: precise
 
 before_install:
   - ./download.sh
