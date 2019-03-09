@@ -37,14 +37,8 @@ the current license agreement for [Oracle Database Express Edition][].
    tar x -C .travis/oracle --strip-components=1 -f v2.0.3.tar.gz
    ```
 
-4. Enable [`sudo`](https://docs.travis-ci.com/user/reference/overview/):
-
-   ```yaml
-   sudo: required
-   ```
-
-5. Finally, execute the extracted scripts as part of your build, usually
-   during [`before_install`](https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle):
+4. Finally, execute the extracted scripts as part of your build, usually
+   during [`before_install`](https://docs.travis-ci.com/user/job-lifecycle):
 
    ```yaml
    - .travis/oracle/download.sh
@@ -58,7 +52,7 @@ has both normal and DBA access without a password, i.e. `/` and `/ AS SYSDBA`.
 `$ORACLE_HOME/rdbms/public`, respectively.
 
 [environment variables]: https://docs.travis-ci.com/user/environment-variables/
-[latest release]: https://github.com/cbandy/travis-oracle/releases/latest
+[latest release]: https://github.com/cbandy/travis-oracle/releases
 [OCCI]: http://www.oracle.com/pls/topic/lookup?ctx=xe112&id=LNCPP
 [OCI]: http://www.oracle.com/pls/topic/lookup?ctx=xe112&id=LNOCI
 [SQL\*Plus]: http://www.oracle.com/pls/topic/lookup?ctx=xe112&id=SQPUG
