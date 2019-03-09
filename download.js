@@ -129,6 +129,7 @@ Phantom.createAsync({ parameters: { 'ssl-protocol': 'tlsv1' } }).then(function (
           '--location',
           '--output', env['ORACLE_DOWNLOAD_FILE'],
           '--user-agent', env['USER_AGENT'],
+          '--verbose',
           "https://edelivery.oracle.com/akam/otn/linux/" + env['ORACLE_FILE']
         ]];
 
