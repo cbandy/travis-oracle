@@ -27,4 +27,5 @@ matrix:
 
 before_install:
   - ./download.sh
+  - f="$(basename "$ORACLE_FILE")"; c="$(echo 1M; du -h "$f")" && sort -Ch <<< "$c" || { echo 'Download is small!'; head -c 5K "$f"; exit 1; }
   - ./install.sh
